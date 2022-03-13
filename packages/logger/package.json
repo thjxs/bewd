@@ -4,7 +4,8 @@
   "main": "lib/index.js",
   "license": "MIT",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "prettier": "prettier --write --single-quote src/**/*"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
@@ -14,6 +15,7 @@
   ],
   "devDependencies": {
     "@types/node": "^16.11.6",
+    "prettier": "^2.5.1",
     "typescript": "^4.4.4"
   }
 }
