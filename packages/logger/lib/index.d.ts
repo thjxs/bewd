@@ -1,1 +1,3 @@
-export declare function log(...message: any): void;
+export declare function log(...data: any[]): void;
+export declare function info(...data: any[]): void;
+export declare function error(...data: any[]): void;
