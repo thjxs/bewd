@@ -1,16 +1,21 @@
 type RequestMethod = 'get' | 'post' | 'put' | 'delete';
 
 interface RequestOptions {
-  method: RequestMethod;
-  headers?: Headers;
+  method?: RequestMethod;
+  headers?: Record<string|number|symbol, string>;
   body?: Record<string | number | symbol, unknown>;
   params?: Record<string | number | symbol, unknown>;
 }
 
+interface RequestInit {
+  method: RequestMethod,
+  headers: Headers
+}
+
 export type RequestInterceptor = (
   url: string,
-  option: RequestOptions
-) => { url?: string; option?: RequestOptions };
+  requestInit: RequestInit
+) => { url?: string; requestInit?: RequestInit };
 
 export type ResponseInterceptor = (
   response: Response,
@@ -20,7 +25,12 @@ export type ResponseInterceptor = (
 const requestInterceptors: RequestInterceptor[] = [];
 const responseInterceptors: ResponseInterceptor[] = [];
 
-export default function request(url: string, option: RequestOptions) {
+export default function request(url: string, option?: RequestOptions) {
+  const requestInit = createRequestInit(option)
+  requestInterceptors.forEach(interceptor => {
+    interceptor(url, requestInit)
+  })
+  return fetch(url, requestInit)
   throw new Error('Not implement yet');
 }
 
@@ -40,4 +50,27 @@ export function useResponseInterceptors(interceptors: ResponseInterceptor[]) {
   interceptors.forEach((interceptor) => {
     responseInterceptors.push(interceptor);
   });
+}
+
+export function createRequestInit(options?: RequestOptions) {
+  const headers = new Headers()
+  const method = options?.method || 'get'
+  if(options && options.headers) {
+    const keys = Object.keys(options.headers)
+    for(let i = 0; i < keys.length; i += 1) {
+      const key = keys[i]
+      headers.append(key, options.headers[key])
+    }
+  }
+
+  const res = {
+
+    method,
+    headers
+  }
+  if (method === 'post') {
+    const body = JSON.stringify(options?.body)
+    res.body = body
+  }
+  return res
 }
