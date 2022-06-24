@@ -1,5 +1,7 @@
 // green,gray,blue,red,yellow
 module.exports = {
+  inherit: 'inherit',
+  current: 'currentColor',
   primary: '#1EBCB2',
   transparent: 'transparent',
   black: '#000',
