@@ -14,8 +14,8 @@
     "lib"
   ],
   "devDependencies": {
-    "@types/node": "^16.11.6",
-    "prettier": "^2.5.1",
-    "typescript": "^4.4.4"
+    "@types/node": "^18.11.18",
+    "prettier": "^2.8.2",
+    "typescript": "^4.9.4"
   }
 }
