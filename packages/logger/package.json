@@ -1,12 +1,17 @@
 {
   "name": "@bewd/logger",
   "version": "1.2.0",
+  "description": "log something in development",
   "main": "lib/index.js",
   "license": "MIT",
   "scripts": {
     "build": "tsc",
     "prettier": "prettier --write --single-quote src/**/*"
   },
+  "keywords": [
+    "logger",
+    "development"
+  ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
