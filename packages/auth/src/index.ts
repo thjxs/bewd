@@ -1,7 +1,7 @@
 let key = 'user';
 let token = localStorage.getItem(key);
-export function setAuthKey(authKey: string) {
-  key = authKey;
+export function setStorageKey(storageKey: string) {
+  key = storageKey;
   token = localStorage.getItem(key);
 }
 
