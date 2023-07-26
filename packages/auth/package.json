@@ -1,6 +1,7 @@
 {
   "name": "@bewd/auth",
   "version": "1.0.0",
+  "description": "auth token management",
   "main": "lib/index.js",
   "keywords": [
     "token",
