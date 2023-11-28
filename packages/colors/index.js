@@ -1,5 +1,5 @@
 // green,gray,blue,red,yellow
-module.exports = {
+export default {
   inherit: 'inherit',
   current: 'currentColor',
   transparent: 'transparent',
