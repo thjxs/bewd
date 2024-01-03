@@ -1,6 +1,6 @@
 {
   "name": "@bewd/log-app-info",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Log app info on the console",
   "main": "lib/index.js",
   "type": "module",

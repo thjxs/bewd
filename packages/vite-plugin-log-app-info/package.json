@@ -1,6 +1,6 @@
 {
     "name": "@bewd/vite-plugin-log-app-info",
-    "version": "0.0.3",
+    "version": "0.1.0",
     "description": "Log app info on the console",
     "main": "lib/index.js",
     "type": "module",
@@ -28,6 +28,6 @@
         "vite": "^5"
     },
     "dependencies": {
-        "@bewd/log-app-info": "^0.0.2"
+        "@bewd/log-app-info": "*"
     }
 }
