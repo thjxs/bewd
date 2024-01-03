@@ -1,0 +1,31 @@
+{
+    "name": "@bewd/umi-plugin-log-app-info",
+    "version": "0.0.4",
+    "description": "Log app info on the console",
+    "main": "lib/index.js",
+    "license": "MIT",
+    "scripts": {
+        "build": "tsc && esbuild src/index.ts --bundle  --platform=node --outfile=lib/index.js",
+        "prettier": "prettier --write --single-quote src/**/*"
+    },
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org"
+    },
+    "files": [
+        "lib"
+    ],
+    "keywords": [
+        "application information",
+        "commit hash",
+        "build date"
+    ],
+    "devDependencies": {
+        "@bewd/log-app-info": "^0.0.2",
+        "esbuild": "0.19.11",
+        "prettier": "^3.1.1",
+        "typescript": "^5.3.3"
+    },
+    "peerDependencies": {
+        "umi": "^4"
+    }
+}
