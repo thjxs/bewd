@@ -1,0 +1,27 @@
+{
+  "name": "@bewd/log-app-info",
+  "version": "0.0.3",
+  "description": "Log app info on the console",
+  "main": "lib/index.js",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "prettier": "prettier --write --single-quote src/**/*"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "lib"
+  ],
+  "keywords": [
+    "application information",
+    "commit hash",
+    "build date"
+  ],
+  "devDependencies": {
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
+  }
+}
