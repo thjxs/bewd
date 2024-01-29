@@ -11,7 +11,7 @@ export function createProxy(port: number, configs: Config[]) {
 
   const server = app.listen(port);
 
-  configs.forEach((config) => {
+  for(const config of configs) {
     const { filter, options } = config;
 
     const proxy = createProxyMiddleware(filter, options);
@@ -21,5 +21,5 @@ export function createProxy(port: number, configs: Config[]) {
     if (options.ws && proxy.upgrade) {
       server.on('upgrade', proxy.upgrade);
     }
-  });
+  };
 }
