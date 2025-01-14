@@ -1,8 +1,8 @@
 import express from 'express';
-import { createProxyMiddleware, Filter, Options } from 'http-proxy-middleware';
+import { createProxyMiddleware, Options } from 'http-proxy-middleware';
 
-type Config = {
-  filter: Filter;
+export type Config = {
+  filter: string;
   options: Options;
 };
 
@@ -11,15 +11,15 @@ export function createProxy(port: number, configs: Config[]) {
 
   const server = app.listen(port);
 
-  for(const config of configs) {
+  for (const config of configs) {
     const { filter, options } = config;
 
-    const proxy = createProxyMiddleware(filter, options);
+    const proxy = createProxyMiddleware(options);
 
-    app.use(proxy);
+    app.use(filter, proxy);
 
     if (options.ws && proxy.upgrade) {
       server.on('upgrade', proxy.upgrade);
     }
-  };
+  }
 }
